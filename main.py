@@ -16,9 +16,10 @@ def extract_out():
     os.system(cmd)
 
 
-schedule.every().day.at("12:00").do(extract_in(), "extract_in")
-schedule.every().day.at("12:00").do(extract_out(), "extract_out")
+schedule.every().day.at("12:00").do(extract_in, "extract_in")
+schedule.every().day.at("12:00").do(extract_out, "extract_out")
 
 while True:
+    print("heart beat")
     schedule.run_pending()
     time.sleep(10)
